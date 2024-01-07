@@ -367,7 +367,9 @@ const Education = ({ studentId = null, nextStep = () => { } }) => {
 											// error={Boolean(errors?.timezone)}
 											// helperText={errors?.timezone}
 											>
-												{gradingSchemeOptions.map(gradingScheme => <MenuItem value={gradingScheme}>{gradingScheme}</MenuItem>)}
+												{gradingSchemeOptions.map(gradingScheme, index =>
+													<MenuItem value={gradingScheme} key={index}>{gradingScheme}</MenuItem>
+												)}
 											</Select>
 										</FormControl>
 									</Grid>
@@ -464,7 +466,9 @@ const Education = ({ studentId = null, nextStep = () => { } }) => {
 															error={Boolean(gradeValueError)}
 															helperText={gradeValueError}
 														>
-															{["A+", "A-", "B+", "B-", "C+", "C-", "D+", "D-", "E", "E-", "F+", "F-"].map(g => <MenuItem value={g}>{g}</MenuItem>)}
+															{["A+", "A-", "B+", "B-", "C+", "C-", "D+", "D-", "E", "E-", "F+", "F-"].map((g, index) => (
+																<MenuItem value={g} key={index}>{g}</MenuItem>
+															))}
 														</Select>
 													</FormControl>
 												</>
@@ -489,7 +493,9 @@ const Education = ({ studentId = null, nextStep = () => { } }) => {
 															error={Boolean(gradeValueError)}
 															helperText={gradeValueError}
 														>
-															{["First", "Second", "Third", "Pass", "Fail"].map(cl => <MenuItem value={cl}>{cl}</MenuItem>)}
+															{["First", "Second", "Third", "Pass", "Fail"].map((cl, index) => (
+																<MenuItem value={cl} key={index}>{cl}</MenuItem>
+															))}
 														</Select>
 													</FormControl>
 												</>
@@ -517,7 +523,9 @@ const Education = ({ studentId = null, nextStep = () => { } }) => {
 															error={Boolean(gradeValueError)}
 															helperText={gradeValueError}
 														>
-															{["First", "Second", "Third"].map(d => <MenuItem value={d}>{d}</MenuItem>)}
+															{["First", "Second", "Third"].map((d, index) => (
+																<MenuItem value={d} key={index}>{d}</MenuItem>
+															))}
 														</Select>
 													</FormControl>
 												</>

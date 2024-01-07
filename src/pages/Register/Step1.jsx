@@ -51,7 +51,7 @@ const useStyles = makeStyles({
 	},
 });
 
-const Step1 = ({ data, setData, nextStep }) => {
+const Step1 = ({ data, step, setData, nextStep }) => {
 	// http://52.66.213.63:4433/api/auth/config?country=India
 	const classes = useStyles();
 	const { app: { countries = [], timezone = [] } = {} } = useSelector(
@@ -550,6 +550,7 @@ const Step1 = ({ data, setData, nextStep }) => {
 				`http://52.66.213.63:4433/api/auth/config?country=${country}`
 			);
 			setBankField(response.data.data.bankFields);
+			console.log("Res: ", response);
 		} catch (err) {
 			console.error(err);
 		}

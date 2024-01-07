@@ -7,8 +7,8 @@ import {
 } from "@mui/material";
 import uniexpertsSmall from "assets/icons/uniexperts-small.svg";
 import styles from "./style.module.scss";
-import { RouteNames } from './../../../routes/_base';
-import { useHistory } from "react-router-dom";
+import { RouteNames } from "routes/_base";
+import { useHistory } from 'react-router-dom';
 
 export const AuthLayout = ({ children }) => {
 	const history = useHistory();
@@ -28,7 +28,7 @@ export const AuthLayout = ({ children }) => {
 					<Typography className={styles.dontExists}>
 						Don’t have an account?
 					</Typography>
-					<Button onClick={()=> history.push(RouteNames.register)} className={styles.button}>Sign up</Button>
+					<Button onClick={() => history.push(RouteNames.register)} className={styles.button}>Sign up</Button>
 				</Box>
 			</Box>
 			{children}

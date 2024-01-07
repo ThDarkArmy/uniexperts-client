@@ -63,13 +63,13 @@ const Register = () => {
 					backgroundColor: completed
 						? "#53B483"
 						: active
-						? "#f4ebff"
-						: "#ffffff",
+							? "#f4ebff"
+							: "#ffffff",
 					border: completed
 						? "2px solid #53B483"
 						: active
-						? "2px solid #9038FF"
-						: "2px solid #E5E7EA",
+							? "2px solid #9038FF"
+							: "2px solid #E5E7EA",
 					borderRadius: "100%",
 					padding: "12px",
 				}}>
@@ -83,7 +83,7 @@ const Register = () => {
 			case 0:
 				return (
 					<Box overflow={"auto"} height={"100%"}>
-						<Box alignItems='center' justifyContent='space-between'>
+						{/* <Box alignItems='center' justifyContent='space-between'>
 							<Typography fontSize='1.9rem' fontWeight={700}>
 								Sign up as an Agent
 							</Typography>
@@ -93,40 +93,53 @@ const Register = () => {
 								color='rgba(0, 0, 0, 0.6)'>
 								Registration Details
 							</Typography>
-						</Box>
-						<Step1 data={data} setData={setData} nextStep={nextStep} />
+						</Box> */}
+						<Box display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
+							<Box>
+								<Typography fontSize='1.9rem' fontWeight={700}>
+									Sign up as an Agent
+								</Typography>
+								<Typography fontSize='0.9rem' fontWeight={400} >
+									Registration Details
+								</Typography>
+
+							</Box>
+							<Box >
+								<Typography bgcolor={"#E5E7EA"} padding={2} borderRadius={1} width={"45px"} height={"50px"} display="flex" textAlign={"center"} alignItems={"center"} justifyItems={"center"} fontWeight={500}>{step == 0 && 1 + "/"} <span style={{
+									color: "#949494"
+								}}>3</span></Typography>
+							</Box>
+						</Box>#
+						<Step1 data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} />
 					</Box>
 				);
-			// case 1:
-			// 	return (
-			// 		<div>
-			// 			<Box alignItems='center' justifyContent='space-between'>
-			// 				<Typography fontSize='1.9rem' fontWeight={700}>
-			// 					Set Password
-			// 				</Typography>
-			// 				<Typography fontSize='0.8rem' fontWeight={300}>
-			// 					Set password for your account
-			// 				</Typography>
-			// 			</Box>
-			// 			<Step2 data={data} setData={setData} nextStep={nextStep} />
-			// 		</div>
-			// 	);
+
 			case 1:
 				return (
 					<Box width={"100%"}>
-						<Box alignItems='center' justifyContent='space-between'>
-							<Typography fontSize='1.9rem' fontWeight={700}>
-								Upload Documents
-							</Typography>
-							<Typography fontSize='0.8rem' fontWeight={300}>
-								Fill up the form to register as an agent
-							</Typography>
+						<Box alignItems='center' justifyContent='space-between' >
+							<Box display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
+								<Box>
+									<Typography fontSize='1.9rem' fontWeight={700}>
+										Sign up as an Agent
+									</Typography>
+									<Typography fontSize='0.9rem' fontWeight={400} >
+										Upload Documents
+									</Typography>
+
+								</Box>
+								<Box >
+									<Typography bgcolor={"#E5E7EA"} padding={2} borderRadius={1} display="flex" textAlign={"center"} alignItems={"center"} justifyItems={"center"} fontWeight={500}>{step == 1 && 2 + "/"} <span style={{
+										color: "#949494"
+									}}>3</span></Typography>
+								</Box>
+							</Box>
 						</Box>
-						<Step3 data={data} setData={setData} nextStep={nextStep} />
+						<Step3 data={data} setData={setData} nextStep={nextStep} prevStep={prevStep} />
 					</Box>
 				);
 			case 2:
-				return <Step4 data={data} />;
+				return <Step4 data={data} prevStep={prevStep} />;
 			default:
 				return null;
 		}
@@ -201,41 +214,7 @@ const Register = () => {
 									))}
 								</Stepper>
 
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										alignItems: "start",
-									}}>
-									<QuestionIcon />
-									<Typography
-										sx={{
-											marginTop: "8px",
-											fontWeight: "500",
-										}}>
-										Having trouble?
-									</Typography>
-									<Typography
-										sx={{
-											marginTop: "8px",
-											fontWeight: "400",
-										}}>
-										Feel free to contact us and we will always help you through
-										the process.
-									</Typography>
-									<Button
-										sx={{
-											marginTop: "12px",
-											background:
-												"linear-gradient(0deg, #e5e7ea, #e5e7ea), linear-gradient(0deg, #ffffff, #ffffff)",
-											border: "1px solid #e5e7ea",
-											textTransform: "none",
-											padding: "8px 16px",
-											color: "#2a2a2a",
-										}}>
-										Contact us
-									</Button>
-								</Box>
+
 							</Box>
 						</Grid>
 						<Grid item md={9}>

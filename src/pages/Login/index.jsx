@@ -45,6 +45,7 @@ const Login = () => {
 		login(values)
 			.then(userDetails => {
 				localStorage.setItem("docUploaded", userDetails.docUploaded);
+				console.log("user details: " + userDetails.docUploaded);
 				if (userDetails.docUploaded) {
 					dispatch(setUser(userDetails));
 					history.push(RouteNames.dashboard);
@@ -79,19 +80,7 @@ const Login = () => {
 												in their journey towards higher education.
 											</Typography>
 										</Box>
-										<Box className={style.info2}>
-											<img src={question} />
-											<Typography className={style.troubleQuestion}>
-												Having trouble?
-											</Typography>
-											<Typography className={style.troubleCaption}>
-												Feel free to contact us and we will always help you
-												through the process.
-											</Typography>
-											<Button className={style.contactUsButton}>
-												Contact us
-											</Button>
-										</Box>
+
 									</Box>
 								</Box>
 							</Box>
@@ -143,7 +132,7 @@ const Login = () => {
 												<Box display={"flex"} alignItems={"center"} gap={1}>
 													<Typography>Don’t have an account?</Typography>
 													<Typography
-														onClick={()=> history.push(RouteNames.register)}
+														onClick={() => history.push(RouteNames.register)}
 														fontWeight={500}
 														sx={{ cursor: "pointer" }}>
 														Sign up

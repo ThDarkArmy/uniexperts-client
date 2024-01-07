@@ -358,9 +358,9 @@ const Card = ({
 					justifyContent='space-between'
 					gap='1rem'>
 					<Typography fontSize='0.75rem' color={`rgb(${statusColor})`}>
-						{/* {completedAt
+						{completedAt
 							? `Completed On: ${format(new Date(completedAt), "PPp")}`
-							: `Pending Since: ${format(new Date(updatedAt), "PPp")}`} */}
+							: `Pending Since: ${format(new Date(updatedAt), "PPp")}`}
 					</Typography>
 
 					{conversationList?.length ? (

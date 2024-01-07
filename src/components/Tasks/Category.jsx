@@ -3,7 +3,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import Card from "./Card";
- 
+
 const Category = ({ label, dataList = [], updateInformation = () => {} }) => {
 	const [isOpen, setIsOpen] = useState(false);
 

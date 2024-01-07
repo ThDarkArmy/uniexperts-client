@@ -220,7 +220,7 @@ const Documents = ({ studentId, nextStep = () => { } }) => {
 			'company_registration_certificate'
 		];
 
-		if (requiredKeys.every(key => files.hasOwnProperty(key))) {
+		if (requiredKeys.every(key => files.hasOwnProperty.call(key))) {
 			const data = {
 				"documents": [
 					{

@@ -13,7 +13,7 @@ import agreementFile from "../../assets/agreement.pdf";
 import gif from "../../assets/loader.gif";
 import styles from "./style.module.scss";
 
-const Step4 = ({ data = {}, setData, nextStep }) => {
+const Step4 = ({ data = {}, setData, nextStep, prevStep }) => {
 	const history = useHistory();
 	const [isChecked, setIsChecked] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
@@ -87,6 +87,10 @@ const Step4 = ({ data = {}, setData, nextStep }) => {
 		document.body.removeChild(a);
 	};
 
+
+	const hanleBackNavigation = () => {
+		prevStep()
+	}
 	// const location = window.navigator && window.navigator.geolocation
 
 	if (isLoading)
@@ -175,7 +179,7 @@ const Step4 = ({ data = {}, setData, nextStep }) => {
 										padding: "14px 24px",
 										color: "#000",
 									}}
-									onClick={() => {}}>
+									onClick={hanleBackNavigation}>
 									Go Back
 								</Button>
 								<Button

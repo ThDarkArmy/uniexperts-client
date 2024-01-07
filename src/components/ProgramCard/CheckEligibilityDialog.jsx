@@ -63,6 +63,8 @@ const CheckEligibilityDialog = ({
 		setStudents(tempStudents);
 	};
 
+	console.log("students: " + JSON.stringify(students))
+
 	return (
 		<Dialog
 			open={open}

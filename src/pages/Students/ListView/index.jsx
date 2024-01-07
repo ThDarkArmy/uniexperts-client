@@ -119,6 +119,7 @@ const Students = () => {
 
 		getStudents(requestParams = {})
 			.then(response => {
+				console.log(response, 'in index file');
 				setData(response);
 				setTotal(response?.meta?.total);
 			})

@@ -29,31 +29,25 @@ const CaseInformation = ({ typeList }) => {
 		priority: "Medium",
 		attachment: {},
 	});
-	const [subTypeList, setSubTypeList] = useState(["Change bank account",
-		"Change email Id",
-		"Defer application",
-		"Application update",
-		"Application duration",
-		"Login related",
-		"Incorrect information"]);
+	const [subTypeList, setSubTypeList] = useState([]);
 
-	// useEffect(() => {
-	// 	setData({
-	// 		...data,
-	// 		subType: null,
-	// 	});
+	useEffect(() => {
+		setData({
+			...data,
+			subType: null,
+		});
 
-	// 	if (!data?.type) {
-	// 		setSubTypeList([]);
-	// 		return;
-	// 	}
+		if (!data?.type) {
+			setSubTypeList([]);
+			return;
+		}
 
-	// 	dispatch(setLoader(true));
+		dispatch(setLoader(true));
 
-	// 	getCaseSubTypes(data?.type)
-	// 		.then((subTypes = []) => setSubTypeList(subTypes))
-	// 		.finally(dispatch(setLoader(false)));
-	// }, [data?.type]);
+		getCaseSubTypes(data?.type)
+			.then((subTypes = []) => setSubTypeList(subTypes))
+			.finally(dispatch(setLoader(false)));
+	}, [data?.type]);
 
 	const hiddenFileInput = useRef(null);
 

@@ -45,7 +45,6 @@ const Login = () => {
 		login(values)
 			.then(userDetails => {
 				localStorage.setItem("docUploaded", userDetails.docUploaded);
-				console.log("user details: " + userDetails.docUploaded);
 				if (userDetails.docUploaded) {
 					dispatch(setUser(userDetails));
 					history.push(RouteNames.dashboard);

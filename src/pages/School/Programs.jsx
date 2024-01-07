@@ -12,8 +12,6 @@ const Programs = ({ schoolId }) => {
 	const [programs, setPrograms] = useState([]);
 	const [studentList, setStudentList] = useState([]);
 
-	console.log("Student List: f: " + studentList)
-
 	useEffect(() => {
 		dispatch(setLoader(true));
 

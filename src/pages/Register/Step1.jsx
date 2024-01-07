@@ -550,7 +550,6 @@ const Step1 = ({ data, setData, nextStep }) => {
 				`http://52.66.213.63:4433/api/auth/config?country=${country}`
 			);
 			setBankField(response.data.data.bankFields);
-			console.log("Res: ", response);
 		} catch (err) {
 			console.error(err);
 		}

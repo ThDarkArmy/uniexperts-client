@@ -9,19 +9,26 @@ import CaseInformation from "./CaseInformation";
 const NewCase = () => {
 	const dispatch = useDispatch();
 
-	const [typeList, setTypeList] = useState([]);
+	const [typeList, setTypeList] = useState(["Enquiry",
+		"New student",
+		"Profile related",
+		"Commission related",
+		"Invoice related",
+		"Student Application related",
+		"University related",
+		"Portal issues"]);
 	const [faqs, setFaqs] = useState([]);
 
-	useEffect(() => {
-		dispatch(setLoader(true));
+	// useEffect(() => {
+	// 	dispatch(setLoader(true));
 
-		Promise.all([getCaseTypes(), getFAQ()])
-			.then(([resp1, resp2]) => {
-				setTypeList(resp1);
-				setFaqs(resp2);
-			})
-			.finally(dispatch(setLoader(false)));
-	}, []);
+	// 	Promise.all([getCaseTypes(), getFAQ()])
+	// 		.then(([resp1, resp2]) => {
+	// 			setTypeList(resp1);
+	// 			setFaqs(resp2);
+	// 		})
+	// 		.finally(dispatch(setLoader(false)));
+	// }, []);
 
 	return (
 		<Grid container spacing={2}>

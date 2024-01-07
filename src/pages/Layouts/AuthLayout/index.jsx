@@ -7,8 +7,11 @@ import {
 } from "@mui/material";
 import uniexpertsSmall from "assets/icons/uniexperts-small.svg";
 import styles from "./style.module.scss";
+import { RouteNames } from './../../../routes/_base';
+import { useHistory } from "react-router-dom";
 
 export const AuthLayout = ({ children }) => {
+	const history = useHistory();
 	return (
 		<ThemeProvider
 			theme={createTheme({

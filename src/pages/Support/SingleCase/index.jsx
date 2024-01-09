@@ -49,7 +49,7 @@ const SingleCase = () => {
 				setSelectedTab={setSelectedTab}
 			/>
 
-			{selectedTab === 0 ? <CaseInformation data={data?.details} /> : null}
+			{selectedTab === 0 ? <CaseInformation data={data} /> : null}
 
 			{selectedTab === 1 ? (
 				<Conversation caseId={caseId} data={data?.comments} />

@@ -113,7 +113,7 @@ const Cases = () => {
 												backgroundColor: "#f37b21",
 												textTransform: "none",
 											}}
-											onClick={() => viewCase(row?.id)}>
+											onClick={() => viewCase(row?._id)}>
 											View
 										</Button>
 									</TableCell>

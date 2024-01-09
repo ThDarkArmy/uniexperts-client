@@ -2,7 +2,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Button, Grid, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { s3Upload } from "apis/app";
+// import { s3Upload } from "apis/app";
 import { createCase, getCaseSubTypes } from "apis/support";
 import CustomTextField from "components/CustomTextField";
 import DropdownWithSearch from "components/DropdownWithSearch";
@@ -12,6 +12,16 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RouteNames } from "routes/_base";
 import { setLoader } from "store";
+
+import AWS from 'aws-sdk';
+
+AWS.config.update({
+  region: 'us-east-1',
+  accessKeyId: 'AKIAVN5B7DYHFC5JDHVR',
+  secretAccessKey: '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',
+});
+
+const S3 = new AWS.S3();
 
 const priorityList = ["Low", "Medium", "High"];
 
@@ -64,10 +74,15 @@ const CaseInformation = ({ typeList }) => {
 
 		if (!file) return;
 
+		const params = {
+			Bucket: "uniexpert",
+			Key: file.name, // Name of the file in your S3 bucket
+			Body: file,
+		};
+
 		dispatch(setLoader(true));
 		try {
-			const fileURL = await s3Upload(file);
-
+			const fileURL = await S3.upload(params).promise();;
 			setData({
 				...data,
 				attachment: {
@@ -293,6 +308,7 @@ const CaseInformation = ({ typeList }) => {
 						"&:disabled": {
 							bgcolor: "rgb(0 0 0 / 12%)!important",
 						},
+
 					}}>
 					Create
 				</Button>

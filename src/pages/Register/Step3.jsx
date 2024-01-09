@@ -86,8 +86,6 @@ const Step3 = ({ data = {}, setData, nextStep }) => {
 	};
 
 	const handleUpload = () => {
-		// You can perform the file upload here using APIs, like Axios or Fetch.
-		// For simplicity, let's just log the selected file's information.
 		if (selectedFile) {
 		} else {
 			console.log("No file selected.");
